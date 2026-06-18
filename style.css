@@ -152,7 +152,7 @@ input {
 /* HERO SECTION */
 .hero {
     height: 700px; /* increase height */
-    background: url('/images/tms.png') no-repeat center center;
+    background: url('images/tms.png') no-repeat center center;
     background-size: cover;
     display: flex;
     flex-direction: column;
