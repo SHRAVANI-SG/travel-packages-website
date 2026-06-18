@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Travel Packages</title>
+    <link rel="stylesheet" href="/style.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+   <nav>
+    <a href="index.html" class="nav-link">Home</a> |
+    <a href="about.html" class="nav-link">About Us</a> |
+    <a href="contact.html" class="nav-link">Contact</a> |
+    <a href="privacy.html" class="nav-link">Privacy Policy</a> |
+    <a href="terms.html" class="nav-link">Terms</a> |
+    <a href="login.html" class="nav-link">Admin Login</a>
+</nav>
+<hr>
+<div class="hero">
+
+</div>
+<div class="search-box">
+    <span class="search-icon">🔍</span>
+    <input type="text" id="searchInput" placeholder="Search Travel Packages">
+</div>
+<h1>🌍 Travel Packages</h1>
+
+<div class="card package-card">
+    <div class="badge">Popular</div>
+    <img src="/images/goa.webp" class="card-img">
+    <h2>Goa Trip</h2>
+    <p class="rating">⭐⭐⭐⭐☆</p>
+    <p>3 Days / 2 Nights</p>
+    <p class="price">₹5000</p>
+    <button onclick="book('Goa', 5000)">Book Now</button>
+</div>
+
+<div class="card package-card">
+    <img src="/images/manali.jpg" class="card-img">
+    <h2>Manali Trip</h2>
+    <p class="rating">⭐⭐⭐⭐☆</p>
+    <p>5 Days / 4 Nights</p>
+    <p class="price">₹6500</p>
+    <button onclick="book('Manali', 6500)">Book Now</button>
+</div>
+
+<div class="card package-card">
+    <div class="badge">Best Deal</div>
+    <img src="/images/paris.webp" class="card-img">
+    <h2>Paris Trip</h2>
+    <p class="rating">⭐⭐⭐⭐⭐</p>
+    <p>5 Days / 4 Nights</p>
+    <p class="price">₹45000</p>
+    <button onclick="book('Paris', 45000)">Book Now</button>
+</div>
+
+<div class="card package-card">
+    <img src="/images/jaipur.jpg" class="card-img">
+    <h2>Jaipur Trip</h2>
+    <p class="rating">⭐⭐⭐⭐☆</p>
+    <p>4 Days / 3 Nights</p>
+    <p class="price">₹5500</p>
+    <button onclick="book('Jaipur', 5500)">Book Now</button>
+</div>
+
+<div class="card package-card">
+    <img src="/images/kerala.jpg" class="card-img">
+    <h2>Kerala Tour</h2>
+    <p class="rating">⭐⭐⭐☆☆</p>
+    <p>6 Days / 5 Nights</p>
+    <p class="price">₹8000</p>
+    <button onclick="book('Kerala', 8000)">Book Now</button>
+</div>
+
+<div class="card package-card">
+    <img src="/images/kashmir.jpg" class="card-img">
+    <h2>Kashmir Trip</h2>
+    <p class="rating">⭐⭐⭐⭐☆</p>
+    <p>5 Days / 4 Nights</p>
+    <p class="price">₹7000</p>
+    <button onclick="book('Kashmir', 7000)">Book Now</button>
+</div>
+
+<div class="card package-card">
+    <div class="badge">Luxury</div>
+    <img src="/images/dubai.webp" class="card-img">
+    <h2>Dubai Trip</h2>
+    <p class="rating">⭐⭐⭐⭐⭐</p>
+    <p>4 Days / 3 Nights</p>
+    <p class="price">₹35000</p>
+    <button onclick="book('Dubai', 35000)">Book Now</button>
+</div>
+
+<div class="card package-card">
+    <div class="badge">Trending</div>
+    <img src="/images/Scotland.jpg" class="card-img">
+    <h2>Scotland Trip</h2>
+    <p class="rating">⭐⭐⭐⭐⭐</p>
+    <p>4 Days / 3 Nights</p>
+    <p class="price">₹40000</p>
+    <button onclick="book('Scotland', 40000)">Book Now</button>
+</div>
+
+<script>
+function book(place, price) {
+    localStorage.setItem("place", place);
+    localStorage.setItem("price", price);
+    window.location = "book.html";
+}
+</script>
+
+<script>
+    const links = document.querySelectorAll(".nav-link");
+    const currentPage = window.location.pathname.split("/").pop();
+
+    links.forEach(link => {
+        if(link.getAttribute("href") === currentPage) {
+            link.classList.add("active");
+        }
+    });
+</script>
+
+<script>// shows only searched package
+
+const searchInput = document.getElementById("searchInput");
+
+searchInput.addEventListener("keyup", function () {
+
+    let filter = searchInput.value.toLowerCase();
+
+    let cards = document.querySelectorAll(".package-card");
+
+    cards.forEach(function(card) {
+
+        let text = card.innerText.toLowerCase();
+
+        if (text.includes(filter) || filter === "") {
+            card.style.display = "";
+        } else {
+            card.style.display = "none";
+        }
+
+    });
+
+});
+
+</script>
+
+<footer>
+    <p>© 2026 Travel Booking System | All Rights Reserved</p>
+    <div class="social-icons">
+
+    <a href="#">
+        <i class="fab fa-facebook-f"></i>
+    </a>
+
+    <a href="#">
+        <i class="fab fa-twitter"></i>
+    </a>
+
+    <a href="#">
+        <i class="fab fa-instagram"></i>
+    </a>
+
+    <a href="#">
+        <i class="fab fa-youtube"></i>
+    </a>
+
+</div>
+</footer>
+
+</body>
+</html>

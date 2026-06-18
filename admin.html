@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<button onclick="logout()">Logout</button>
+<h2>Admin Panel - Bookings</h2>
+
+<div id="list"></div> //bookings will be dynamically displayed
+
+<script>
+function loadData() {
+    fetch("/bookings")
+    .then(res => res.json())
+    .then(data => {
+        let list = document.getElementById("list");
+        list.innerHTML = "";
+
+        data.forEach((b, index) => {
+            let div = document.createElement("div");
+            div.className = "card";
+            div.innerHTML = `
+                <p><b>Name:</b> ${b.name}</p>
+                <p><b>Place:</b> ${b.place}</p>
+                <p><b>Price:</b> ₹${b.price}</p>
+                <p><b>Persons:</b> ${b.persons}</p>
+                <p><b>Date:</b> ${b.date}</p>
+                <button onclick="deleteBooking(${index})">Delete</button>
+            `;
+            list.appendChild(div);
+        });
+    });
+}
+
+function deleteBooking(index) {
+    fetch("/delete/" + index, { method: "DELETE" })
+    .then(() => loadData());
+}
+
+function logout() {
+    localStorage.clear();
+    window.location = "login.html";
+}
+
+loadData();
+</script>
+
+
+</body>
+</html>

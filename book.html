@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Package</title>
+        <link rel="stylesheet" href="style.css">
+   
+</head>
+<body>
+
+<h2>Book Your Trip</h2>
+
+<input id="name" placeholder="Your Name"><br><br>
+<input id="date" type="date"><br><br>
+<input id="persons" placeholder="No. of Persons"><br><br>
+
+<button onclick="submitBooking()">Submit</button>
+
+<script>
+function submitBooking() {
+    fetch("/book", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+            place: localStorage.getItem("place"),
+            price: localStorage.getItem("price"),
+            name: document.getElementById("name").value,
+            date: document.getElementById("date").value,
+            persons: document.getElementById("persons").value
+        })
+    })
+    .then(res => res.text())
+    .then(msg => {
+        alert(msg);
+        window.location = "/";
+    });
+}
+</script>
+
+</body>
+</html>
