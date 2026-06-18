@@ -1,0 +1,44 @@
+[
+  {
+    "place": "Paris",
+    "price": "45000",
+    "name": "nihu",
+    "date": "2026-04-30",
+    "persons": "2"
+  },
+  {
+    "place": "Jaipur",
+    "price": "5500",
+    "name": "Sarika",
+    "date": "2026-05-08",
+    "persons": "1"
+  },
+  {
+    "place": "Manali",
+    "price": "6500",
+    "name": "Riya",
+    "date": "2026-04-09",
+    "persons": "1"
+  },
+  {
+    "place": "Manali",
+    "price": "6500",
+    "name": "Shravani",
+    "date": "2026-05-22",
+    "persons": "1"
+  },
+  {
+    "place": "Manali",
+    "price": "6500",
+    "name": "diya",
+    "date": "52000-02-20",
+    "persons": "2"
+  },
+  {
+    "place": "Manali",
+    "price": "6500",
+    "name": "",
+    "date": "5555-03-31",
+    "persons": "5"
+  }
+]
